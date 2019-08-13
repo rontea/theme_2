@@ -77,14 +77,14 @@ var paths = {
 
       src: "node_modules/bootstrap/scss/bootstrap.scss/*.scss",
 
-      dest: "src/css/inc/bootstrap"
+      dest: "build/css/inc/bootstrap"
     },
 
     styles: {
 
       src: "src/scss/*.scss",
 
-      dest: "src/css"
+      dest: "build/css"
 
     }
 };
@@ -105,7 +105,7 @@ gulp.task('compile-bootstrap', function (){
 Sass to compile
 */
 
-function compileSass() {
+gulp.task('compile-scss', function () {
   return gulp
     // sass location
     .src(paths.styles.src)
@@ -121,11 +121,11 @@ function compileSass() {
     .pipe(gulp.dest(paths.styles.dest))
     // Add browsersync stream pipe after compilation
     .pipe(browserSync.stream());
-};
+});
 
 var pages = {
 
-    src : "pages/**/*.html",
+    src : "./",
 
     desc: "build"
 };
@@ -134,18 +134,24 @@ var pages = {
 panini tasks
 */
 
-function compilePanini() {
+gulp.task('compile-html', function () {
+  var url = 'html/',
+    root = pages.src + url;
+
   return gulp
     .src(pages.src)
     .pipe(panini({
-      root: 'pages/',
-      layouts: 'layouts/',
-      partials: 'partials/',
-      helpers: 'helpers/',
-      data: 'data/'
+      root: root + 'pages/',
+      layouts: root + 'layouts/',
+      partials: root + 'partials/',
+      helpers: root + 'helpers/',
+      data: root + 'data/'
     }))
-    .pipe(gulp.dest(pages.desc));
-};
+    .pipe(gulp.dest(pages.desc))
+    // Add browsersync stream pipe after compilation
+    .pipe(browserSync.stream());
+
+});
 
 /* Watch */
 
@@ -165,13 +171,13 @@ gulp.task('watch', function () {
         // You can use the proxy setting to proxy that instead
         // proxy: "yourlocal.dev"
     });
-    gulp.watch(paths.styles.src, compileSass);
-
+    // invoke gulp complile scss
+    gulp.watch(paths.styles.src).on('change',gulp.series('compile-scss',reload));
     // panini
-    gulp.watch(['./src/{layouts,partials,helpers,data}/**/*'], compilePanini);
+
 
     // We should tell gulp which files to watch to trigger the reload
     // This can be html or whatever you're using to develop your website
     // Note -- you can obviously add the path to the Paths object
-    gulp.watch("./*.html", reload);
+
 });
