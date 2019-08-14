@@ -41,10 +41,14 @@ var jspaths = {
 
     jquery: "node_modules/jquery/dist/jquery.min.js",
 
+    main: "src/js",
+
+    mainDesc: "build/js"
+
 };
 
 /* JS Destination */
-var jsdes = "src/js/inc";
+var jsdes = "build/js/inc";
 
 // gulp information
 gulp.task('hello', function() {
@@ -56,6 +60,18 @@ gulp.task('hello', function() {
 // Erases the dist folder
 gulp.task('clean', function() {
   rimraf(main);
+});
+
+/*
+JS compile user define
+*/
+
+gulp.task ( 'js-compile', function (){
+  return gulp
+    .src(jspaths.main + '/**/*.js')
+    .pipe(gulp.dest(jspaths.mainDesc))
+    .pipe(browserSync.stream());
+
 });
 
 /*
@@ -71,7 +87,7 @@ gulp.task ('compile-js', function () {
     .pipe(browserSync.stream());
 });
 
-
+/* bootstrap path*/
 var paths = {
     bootstrap: {
 
@@ -127,7 +143,9 @@ var pages = {
 
     src : "./",
 
-    desc: "build"
+    desc: "build",
+
+    devPanini: './html/**/*',
 };
 
 /*
@@ -139,7 +157,7 @@ gulp.task('compile-html', function () {
     root = pages.src + url;
 
   return gulp
-    .src(pages.src)
+    .src(pages.src + url + 'pages/' + '**/*.html')
     .pipe(panini({
       root: root + 'pages/',
       layouts: root + 'layouts/',
@@ -157,8 +175,16 @@ gulp.task('compile-html', function () {
 
 // A simple task to reload the page
 function reload() {
+    console.log('Refresh page');
     browserSync.reload();
 };
+
+// panini reset
+function resetPanini(done) {
+  console.log('Refresh panini');
+  panini.refresh();
+  done();
+}
 
 // Add browsersync initialization at the start of the watch task
 gulp.task('watch', function () {
@@ -174,10 +200,21 @@ gulp.task('watch', function () {
     // invoke gulp complile scss
     gulp.watch(paths.styles.src).on('change',gulp.series('compile-scss',reload));
     // panini
-
+    gulp.watch('./html/{pages,layouts,partials,helpers,data}/**/*.html').on('change',gulp.series('compile-html',resetPanini, reload));
 
     // We should tell gulp which files to watch to trigger the reload
     // This can be html or whatever you're using to develop your website
     // Note -- you can obviously add the path to the Paths object
-
+    // js Watch
+    gulp.watch('src/js/**/*.js').on('change', gulp.series('js-compile',reload));
 });
+// start the process default
+gulp.task('default', gulp.parallel('hello','js-compile','compile-js','compile-bootstrap','compile-scss','watch'));
+
+/*
+minify content
+*/
+
+/*
+Image
+*/
