@@ -91,16 +91,16 @@ gulp.task ('compile-js', function () {
 var paths = {
     bootstrap: {
 
-      src: "node_modules/bootstrap/scss/bootstrap.scss/*.scss",
+      src: "node_modules/bootstrap/scss/bootstrap.scss",
 
-      dest: "build/css/inc/bootstrap"
+      dest: "build/css/inc"
     },
 
     styles: {
 
       src: "src/scss/*.scss",
 
-      dest: "build/css"
+      dest: "build/css/"
 
     }
 };
@@ -111,7 +111,8 @@ bootstrap to complie
 gulp.task('compile-bootstrap', function (){
   return gulp
     .src(paths.bootstrap.src)
-    .pipe(sass()) // Using gulp-sass
+    .pipe(sass().on('error', sass.logError))
+    .pipe(postcss([autoprefixer(), cssnano()]))
     .pipe(gulp.dest(paths.bootstrap.dest))
     .pipe(browserSync.stream());
 });
@@ -139,6 +140,7 @@ gulp.task('compile-scss', function () {
     .pipe(browserSync.stream());
 });
 
+/* panini links */
 var pages = {
 
     src : "./",
@@ -209,7 +211,7 @@ gulp.task('watch', function () {
     gulp.watch('src/js/**/*.js').on('change', gulp.series('js-compile',reload));
 });
 // start the process default
-gulp.task('default', gulp.parallel('hello','js-compile','compile-js','compile-bootstrap','compile-scss','watch'));
+gulp.task('default', gulp.parallel('hello','js-compile','compile-js','compile-bootstrap','compile-scss','compile-html','watch'));
 
 /*
 minify content
