@@ -200,7 +200,7 @@ gulp.task('watch', function () {
         // proxy: "yourlocal.dev"
     });
     // invoke gulp complile scss
-    gulp.watch(paths.styles.src).on('change',gulp.series('compile-scss',reload));
+    gulp.watch(paths.styles.src).on('change',gulp.series('compile-scss',reload,resetPanini));
     // panini
     gulp.watch('./html/{pages,layouts,partials,helpers,data}/**/*.html').on('change',gulp.series('compile-html',resetPanini, reload));
 
@@ -208,7 +208,7 @@ gulp.task('watch', function () {
     // This can be html or whatever you're using to develop your website
     // Note -- you can obviously add the path to the Paths object
     // js Watch
-    gulp.watch('src/js/**/*.js').on('change', gulp.series('js-compile',reload));
+    gulp.watch('src/js/**/*.js').on('change', gulp.series('js-compile',reload,resetPanini));
 });
 // start the process default
 gulp.task('default', gulp.parallel('hello','js-compile','compile-js','compile-bootstrap','compile-scss','compile-html','watch'));
