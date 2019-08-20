@@ -188,6 +188,10 @@ function resetPanini(done) {
   done();
 }
 
+/* Images */
+
+
+
 // Add browsersync initialization at the start of the watch task
 gulp.task('watch', function () {
     browserSync.init({
