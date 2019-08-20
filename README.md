@@ -33,3 +33,6 @@
 - [Bootstrap](https://getbootstrap.com/)
 - [node](https://nodejs.org/en/)
 - [npm](https://www.npmjs.com/)
+- [gulp](https://gulpjs.com/)
+- [panini](https://foundation.zurb.com/sites/docs/panini.html)
+  - [Playlist](https://www.youtube.com/playlist?list=PLJVWPVPk_D_3A4OBvLtsrcjL7gs1QEWLW)
