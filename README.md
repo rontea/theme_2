@@ -23,9 +23,13 @@
 - Minify Image
 - Guide Templateting
 
-## Link to Guide Template
+## Link to Coding Standards
 
 - https://en.bem.info/methodology/
+-https://google.github.io/styleguide/htmlcssguide.html#HTML_Formatting_Rules
+-https://github.com/xfiveco/html-coding-standards/blob/master/README.md
+-https://cssguidelin.es/#the-importance-of-a-styleguide
+-https://github.com/necolas/idiomatic-css#general-principles
 
 ## Resources
 
