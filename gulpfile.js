@@ -16,7 +16,10 @@ var gulp = require("gulp"),
     // gulp-uglify
     uglify = require('gulp-uglify'),
     // panini
-    panini = require('panini');
+    panini = require('panini'),
+    // clean
+    rimraf = require('rimraf');
+
 
 // main directory
 
@@ -58,8 +61,8 @@ gulp.task('hello', function() {
 });
 
 // Erases the dist folder
-gulp.task('clean', function() {
-  rimraf(main);
+gulp.task('clean', function(cb) {
+  rimraf('./build/*', cb);
 });
 
 /*
@@ -71,7 +74,6 @@ gulp.task ( 'js-compile', function (){
     .src(jspaths.main + '/**/*.js')
     .pipe(gulp.dest(jspaths.mainDesc))
     .pipe(browserSync.stream());
-
 });
 
 /*
@@ -131,7 +133,7 @@ gulp.task('compile-scss', function () {
     //sass error log
     .pipe(sass().on('error', sass.logError))
     // Use postcss with autoprefixer and compress the compiled file using cssnano
-    .pipe(postcss([autoprefixer(), cssnano()]))
+    .pipe(production(postcss([autoprefixer(), cssnano()])))
     // Now add/write the sourcemaps
     .pipe(development(sourcemaps.write()))
     // sass destination
@@ -188,9 +190,13 @@ function resetPanini(done) {
   done();
 }
 
-/* Images */
+/*
+Minify Images
+*/
 
-
+/*
+Minify content
+*/
 
 // Add browsersync initialization at the start of the watch task
 gulp.task('watch', function () {
@@ -217,10 +223,5 @@ gulp.task('watch', function () {
 // start the process default
 gulp.task('default', gulp.parallel('hello','js-compile','compile-js','compile-bootstrap','compile-scss','compile-html','watch'));
 
-/*
-minify content
-*/
-
-/*
-Image
-*/
+/* Compile without the bootstrap, to use bootstrap in includes under scss */
+gulp.task('compile-nobs', gulp.parallel('hello','js-compile','compile-js','compile-scss','compile-html','watch'));

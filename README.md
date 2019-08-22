@@ -5,18 +5,25 @@
 - node
 - npm install gulp-cli -g
 - npm init
-  - npm install --save-dev gulp gulp-postcss gulp-sass gulp-sourcemaps gulp-uglify gulp-environments autoprefixer cssnano browser-sync jquery popper bootstrap tether panini
+  - npm install --save-dev gulp gulp-postcss gulp-sass gulp-sourcemaps gulp-uglify gulp-environments autoprefixer cssnano browser-sync jquery popper bootstrap tether panini rimraf
 
 ## Gulp Tasks
 
 - default
-- clean
+- clean : clean the /build/* directory
 - js-compile
 - compile-js
 - compile-bootstrap
 - compile-scss
 - compile-html
 - watch
+
+## Gulp Task set
+- --development
+- --production
+
+## Gulp Tasks Update
+- compile-nobs : Compile without Compiling Bootstrap
 
 ## Upcoming
 

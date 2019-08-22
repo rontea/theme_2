@@ -30,6 +30,7 @@
     "panini": "^1.6.3",
     "popper": "^1.0.1",
     "popper.js": "^1.15.0",
+    "rimraf": "^3.0.0",
     "tether": "^1.4.7"
   },
   "dependencies": {
