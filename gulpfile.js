@@ -18,7 +18,9 @@ var gulp = require("gulp"),
     // panini
     panini = require('panini'),
     // clean
-    rimraf = require('rimraf');
+    rimraf = require('rimraf'),
+    //gulp-html
+    validator = require('gulp-html');
 
 
 // main directory
@@ -199,6 +201,16 @@ Minify Images
 /*
 Minify content
 */
+
+/*
+Html Validator (Figuring out how this works)
+*/
+
+gulp.task('validate' , function () {
+  return gulp.src('/build/**/*')
+    .pipe(validator());
+});
+
 
 // Add browsersync initialization at the start of the watch task
 gulp.task('watch', function () {
