@@ -19,11 +19,20 @@
 - watch
 
 ## Gulp Task set
-- --development
-- --production
+
+- gulp task --env development
+- gulp task --env production
+
+#####
+ - Usage : gulp default --env development / gulp default --env production
+
 
 ## Gulp Tasks Update
 - compile-nobs : Compile without Compiling Bootstrap
+
+## gulp default
+The data will be compiled on build folder to clean the build folder run clean task
+
 
 ## Upcoming
 

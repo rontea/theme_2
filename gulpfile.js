@@ -60,10 +60,18 @@ gulp.task('hello', function() {
   console.log('========================');
 });
 
-// Erases the dist folder
+// Erases the dist folder contents
 gulp.task('clean', function(cb) {
   rimraf('./build/*', cb);
 });
+
+
+/*
+Setting enviroments (has an issue)
+*/
+
+gulp.task('set-dev', development.task);
+gulp.task('set-prod', production.task);
 
 /*
 JS compile user define
@@ -72,6 +80,7 @@ JS compile user define
 gulp.task ( 'js-compile', function (){
   return gulp
     .src(jspaths.main + '/**/*.js')
+    .pipe(production(uglify()))
     .pipe(gulp.dest(jspaths.mainDesc))
     .pipe(browserSync.stream());
 });
@@ -114,7 +123,7 @@ gulp.task('compile-bootstrap', function (){
   return gulp
     .src(paths.bootstrap.src)
     .pipe(sass().on('error', sass.logError))
-    .pipe(postcss([autoprefixer(), cssnano()]))
+    .pipe(production(postcss([autoprefixer(), cssnano()])))
     .pipe(gulp.dest(paths.bootstrap.dest))
     .pipe(browserSync.stream());
 });
