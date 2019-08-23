@@ -35,7 +35,6 @@ var production = environments.production;
 
 /* JS paths*/
 var jspaths = {
-
     bootstrap: "node_modules/bootstrap/dist/js/bootstrap.min.js",
 
     popper : "node_modules/popper.js/dist/popper.min.js",
@@ -47,7 +46,6 @@ var jspaths = {
     main: "src/js",
 
     mainDesc: "build/js"
-
 };
 
 /* JS Destination */
@@ -101,18 +99,15 @@ gulp.task ('compile-js', function () {
 /* bootstrap path*/
 var paths = {
     bootstrap: {
-
       src: "node_modules/bootstrap/scss/bootstrap.scss",
 
       dest: "build/css/inc"
     },
-
     styles: {
 
       src: "src/scss/*.scss",
 
       dest: "build/css/"
-
     }
 };
 /*
@@ -127,7 +122,6 @@ gulp.task('compile-bootstrap', function (){
     .pipe(gulp.dest(paths.bootstrap.dest))
     .pipe(browserSync.stream());
 });
-
 
 /*
 Sass to compile
@@ -181,7 +175,6 @@ gulp.task('compile-html', function () {
     .pipe(gulp.dest(pages.desc))
     // Add browsersync stream pipe after compilation
     .pipe(browserSync.stream());
-
 });
 
 /* Watch */
