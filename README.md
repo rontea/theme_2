@@ -18,10 +18,10 @@
 - compile-html
 - watch
 
-## Gulp Task set
+##### Using gulp-enviroments
 
-- gulp task --env development
-- gulp task --env production
+- gulp task --env development : do not minify js , css and other
+- gulp task --env production :  minify js , css and other
 
 #####
  - Usage : gulp default --env development / gulp default --env production
@@ -30,8 +30,9 @@
 ## Gulp Tasks Update
 - compile-nobs : Compile without Compiling Bootstrap
 
-## gulp default
-The data will be compiled on build folder to clean the build folder run clean task
+##### gulp default task
+The data will be compiled on build folder, to clean the build folder run clean task
+
 
 
 ## Upcoming
