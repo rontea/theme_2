@@ -16,6 +16,8 @@
 - compile-bootstrap
 - compile-scss
 - compile-html
+- compile-img
+- compile-nobs
 - watch
 
 ##### Using gulp-enviroments
@@ -29,6 +31,7 @@
 
 ## Gulp Tasks Update
 - compile-nobs : Compile without Compiling Bootstrap
+- compile-img : no image minigy yet
 
 ##### gulp default task
 The data will be compiled on build folder, to clean the build folder run clean task

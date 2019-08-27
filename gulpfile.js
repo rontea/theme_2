@@ -24,9 +24,7 @@ var gulp = require("gulp"),
 
 
 // main directory
-
 var main = "./";
-
 /*
 enviroments
 */
@@ -34,19 +32,13 @@ enviroments
 var development = environments.development;
 var production = environments.production;
 
-
 /* JS paths*/
 var jspaths = {
     bootstrap: "node_modules/bootstrap/dist/js/bootstrap.min.js",
-
     popper : "node_modules/popper.js/dist/popper.min.js",
-
     tether: "node_modules/tether/dist/js/tether.min.js",
-
     jquery: "node_modules/jquery/dist/jquery.min.js",
-
     main: "src/js",
-
     mainDesc: "build/js"
 };
 
@@ -65,7 +57,6 @@ gulp.task('clean', function(cb) {
   rimraf('./build/*', cb);
 });
 
-
 /*
 Setting enviroments (has an issue)
 */
@@ -76,7 +67,6 @@ gulp.task('set-prod', production.task);
 /*
 JS compile user define
 */
-
 gulp.task ( 'js-compile', function (){
   return gulp
     .src(jspaths.main + '/**/*.js')
@@ -88,7 +78,6 @@ gulp.task ( 'js-compile', function (){
 /*
 JS to complile
 */
-
 gulp.task ('compile-js', function () {
   return gulp
     // js paths source
@@ -102,20 +91,16 @@ gulp.task ('compile-js', function () {
 var paths = {
     bootstrap: {
       src: "node_modules/bootstrap/scss/bootstrap.scss",
-
       dest: "build/css/inc"
     },
     styles: {
-
       src: "src/scss/*.scss",
-
       dest: "build/css/"
     }
 };
 /*
 bootstrap to complie
 */
-
 gulp.task('compile-bootstrap', function (){
   return gulp
     .src(paths.bootstrap.src)
@@ -128,7 +113,6 @@ gulp.task('compile-bootstrap', function (){
 /*
 Sass to compile
 */
-
 gulp.task('compile-scss', function () {
   return gulp
     // sass location
@@ -149,18 +133,14 @@ gulp.task('compile-scss', function () {
 
 /* panini links */
 var pages = {
-
     src : "./",
-
     desc: "build",
-
     devPanini: './html/**/*',
 };
 
 /*
 panini tasks
 */
-
 gulp.task('compile-html', function () {
   var url = 'html/',
     root = pages.src + url;
@@ -180,7 +160,6 @@ gulp.task('compile-html', function () {
 });
 
 /* Watch */
-
 // A simple task to reload the page
 function reload() {
     console.log('Refresh page');
@@ -195,8 +174,20 @@ function resetPanini(done) {
 }
 
 /*
-Minify Images
+ Images
 */
+
+// image paths
+var img = {
+  src : "src/images/**/*",
+  desc: "build/img"
+}
+
+// tranfer images
+gulp.task('compile-img', function(){
+  return gulp.src(img.src)
+  .pipe(gulp.dest(img.desc));
+});
 
 /*
 Minify content
@@ -233,9 +224,11 @@ gulp.task('watch', function () {
     // Note -- you can obviously add the path to the Paths object
     // js Watch
     gulp.watch('src/js/**/*.js').on('change', gulp.series('js-compile',reload,resetPanini));
+    //watch images
+    gulp.watch('src/images/**/*').on('change',gulp.series('compile-img'));
 });
 // start the process default
-gulp.task('default', gulp.parallel('hello','js-compile','compile-js','compile-bootstrap','compile-scss','compile-html','watch'));
+gulp.task('default', gulp.parallel('hello','js-compile','compile-js','compile-bootstrap','compile-scss','compile-html','compile-img','watch'));
 
 /* Compile without the bootstrap, to use bootstrap in includes under scss */
-gulp.task('compile-nobs', gulp.parallel('hello','js-compile','compile-js','compile-scss','compile-html','watch'));
+gulp.task('compile-nobs', gulp.parallel('hello','js-compile','compile-js','compile-scss','compile-html','compile-img','watch'));
