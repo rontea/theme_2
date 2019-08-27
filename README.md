@@ -5,7 +5,7 @@
 - node
 - npm install gulp-cli -g
 - npm init
-  - npm install --save-dev gulp gulp-postcss gulp-sass gulp-sourcemaps gulp-uglify gulp-environments autoprefixer cssnano browser-sync jquery popper bootstrap tether panini rimraf
+  - npm install --save-dev gulp gulp-postcss gulp-sass gulp-sourcemaps gulp-uglify gulp-environments autoprefixer cssnano browser-sync jquery popper bootstrap tether panini rimraf gulp-html
 
 ## Gulp Tasks
 
