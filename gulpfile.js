@@ -225,7 +225,7 @@ gulp.task('watch', function () {
     // js Watch
     gulp.watch('src/js/**/*.js').on('change', gulp.series('js-compile',reload,resetPanini));
     //watch images
-    gulp.watch('src/images/**/*').on('change',gulp.series('compile-img'));
+    gulp.watch('src/images/**/*').on('change', gulp.series('compile-img'));
 });
 // start the process default
 gulp.task('default', gulp.parallel('hello','js-compile','compile-js','compile-bootstrap','compile-scss','compile-html','compile-img','watch'));
