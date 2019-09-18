@@ -48,7 +48,7 @@ var jsdes = "build/js/inc";
 // gulp information
 gulp.task('hello', function() {
   console.log('========================');
-  console.log('Gulp File RR Version v1.0.0');
+  console.log('Gulp File RR Version v0.0.0');
   console.log('========================');
 });
 
@@ -94,7 +94,7 @@ var paths = {
       dest: "build/css/inc"
     },
     styles: {
-      src: "src/scss/*.scss",
+      src: "src/scss/**/*.scss",
       dest: "build/css/"
     }
 };
