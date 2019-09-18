@@ -1,11 +1,20 @@
 # Theme Template
 
-###### Requirements:
+Theme template using panini to divide and sub-divide each html document to a more clean coding.
+This is define on gulp.js.
+
+## Requirements:
 
 - node
 - npm install gulp-cli -g
 - npm init
   - npm install --save-dev gulp gulp-postcss gulp-sass gulp-sourcemaps gulp-uglify gulp-environments autoprefixer cssnano browser-sync jquery popper bootstrap tether panini rimraf gulp-html
+
+  ```
+  $npm install gulp-cli -g
+  $npm init
+  $npm install --save-dev gulp gulp-postcss gulp-sass gulp-sourcemaps gulp-uglify gulp-environments autoprefixer cssnano browser-sync jquery popper bootstrap tether panini rimraf gulp-html
+  ```
 
 ## Gulp Tasks
 
@@ -20,27 +29,50 @@
 - compile-nobs
 - watch
 
-##### Using gulp-enviroments
+## Using gulp-enviroments
 
 - gulp task --env development : do not minify js , css and other
+    ```
+    $gulp 'task' --env development
+    ```
 - gulp task --env production :  minify js , css and other
 
-#####
- - Usage : gulp default --env development / gulp default --env production
+    ```
+    $gulp 'task' --env production
+    ```
+## Deployment
 
+The compiled version of the codes is available under ./build
+
+##### gulp default task
+The data will be compiled on build folder
+
+```
+$gulp 'task' --env development
+```
+
+##### Clean the build folder
+
+```
+$gulp clean
+```
+
+## Version
+
+Version 0.0.0
+
+## Change log
+
+None...
 
 ## Gulp Tasks Update
 - compile-nobs : Compile without Compiling Bootstrap
-- compile-img : no image minigy yet
-
-##### gulp default task
-The data will be compiled on build folder, to clean the build folder run clean task
-
-
+- compile-img : no image minify yet
 
 ## Upcoming
 
 - Minify Image
+- Create Dist
 - Guide Templateting
 
 ## Link to Coding Standards
@@ -60,3 +92,7 @@ The data will be compiled on build folder, to clean the build folder run clean t
 - [gulp](https://gulpjs.com/)
 - [panini](https://foundation.zurb.com/sites/docs/panini.html)
   - [Playlist](https://www.youtube.com/playlist?list=PLJVWPVPk_D_3A4OBvLtsrcjL7gs1QEWLW)
+
+## other
+
+- Readme.md Guide [Readme.md](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2)
