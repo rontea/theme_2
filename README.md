@@ -93,7 +93,7 @@ None...
 - [panini](https://foundation.zurb.com/sites/docs/panini.html)
   - [Playlist](https://www.youtube.com/playlist?list=PLJVWPVPk_D_3A4OBvLtsrcjL7gs1QEWLW)
 
-## other
+## Other
 
 - Readme.md Guide Template [Readme.md](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2)
 - Readme.md Format [https://guides.github.com/features/mastering-markdown/](https://guides.github.com/features/mastering-markdown/)
