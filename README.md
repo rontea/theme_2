@@ -70,7 +70,9 @@ Version 0.0.0
 
 ## Change log
 
-9.27 Update src/style.scss to have an option to add bulma, bootstrap and google font
+Update 9.27 
+- Update src/style.scss to have an option to add bulma, bootstrap and google font
+- Added gulp task compile-bulma
 
 Add the following to import individual component of each framework
 ```
