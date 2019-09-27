@@ -15,6 +15,12 @@ This is define on gulp.js.
   $npm init
   $npm install --save-dev gulp gulp-postcss gulp-sass gulp-sourcemaps gulp-uglify gulp-environments autoprefixer cssnano browser-sync jquery popper bootstrap tether panini rimraf gulp-html
   ```
+## Adding Vue.js and Bulma CSS
+
+##### bulma additional installation
+```
+  $npm install --save-dev bulma
+```
 
 ## Gulp Tasks
 
@@ -23,6 +29,7 @@ This is define on gulp.js.
 - js-compile
 - compile-js
 - compile-bootstrap
+- compile-bulma
 - compile-scss
 - compile-html
 - compile-img
@@ -63,10 +70,20 @@ Version 0.0.0
 
 ## Change log
 
-None...
+9.27 Update src/style.scss to have an option to add bulma, bootstrap and google font
+
+Add the following to import individual component of each framework
+```
+@import "google/google_font";
+@import "bootstrap/bootstrap";
+@import "bulma/bulma";
+```
 
 ## Gulp Tasks Update
 - compile-nobs : Compile without Compiling Bootstrap
+- compile-bulma
+  - *note that bulma and bootstrap do not work if imported in scss at the same time
+
 - compile-img : no image minify yet
 
 ## Upcoming
@@ -74,6 +91,8 @@ None...
 - Minify Image
 - Create Dist
 - Guide Templateting
+- Adding AngularJS
+- Adding Dist folder
 
 ## Link to Coding Standards
 

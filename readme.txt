@@ -53,3 +53,16 @@ Comment mobile view:
  ============== SECTION Article
  POST BY
  ==============*/
+
+
+Reference link distribution:
+
+Bootstrap : 
+
+JS : ./node_modules/bootstrap/dist/js/bootstrap.min.js
+Scss: ./node_modules/bootstrap/scss/bootstrap.scss
+
+Jquery :
+ 
+JS: node_modules/jquery/dist/jquery.min.js
+

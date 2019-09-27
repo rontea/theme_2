@@ -87,7 +87,7 @@ gulp.task ('compile-js', function () {
     .pipe(browserSync.stream());
 });
 
-/* bootstrap path*/
+/* bootstrap  and bulma path*/
 var paths = {
     bootstrap: {
       src: "node_modules/bootstrap/scss/bootstrap.scss",
@@ -96,10 +96,16 @@ var paths = {
     styles: {
       src: "src/scss/**/*.scss",
       dest: "build/css/"
-    }
+    },
+    bulma: {
+      src: "node_modules/bulma/bulma.sass",
+      dest: "build/css/inc"
+    },
 };
+/* Bootstrap */
+
 /*
-bootstrap to complie
+Bootstrap to complie
 */
 gulp.task('compile-bootstrap', function (){
   return gulp
@@ -107,6 +113,21 @@ gulp.task('compile-bootstrap', function (){
     .pipe(sass().on('error', sass.logError))
     .pipe(production(postcss([autoprefixer(), cssnano()])))
     .pipe(gulp.dest(paths.bootstrap.dest))
+    .pipe(browserSync.stream());
+});
+
+/* Bulma */
+
+/*
+Bulma to complie
+*/
+
+gulp.task('compile-bulma', function (){
+  return gulp
+    .src(paths.bulma.src)
+    .pipe(sass().on('error', sass.logError))
+    .pipe(production(postcss([autoprefixer(), cssnano()])))
+    .pipe(gulp.dest(paths.bulma.dest))
     .pipe(browserSync.stream());
 });
 
@@ -228,7 +249,10 @@ gulp.task('watch', function () {
     gulp.watch('src/images/**/*').on('change', gulp.series('compile-img'));
 });
 // start the process default
-gulp.task('default', gulp.parallel('hello','js-compile','compile-js','compile-bootstrap','compile-scss','compile-html','compile-img','watch'));
+gulp.task('default', gulp.parallel('hello','js-compile','compile-js','compile-bootstrap', 'compile-bulma','compile-scss','compile-html','compile-img','watch'));
 
 /* Compile without the bootstrap, to use bootstrap in includes under scss */
 gulp.task('compile-nobs', gulp.parallel('hello','js-compile','compile-js','compile-scss','compile-html','compile-img','watch'));
+
+
+/* Vue.js */
