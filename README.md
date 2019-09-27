@@ -28,6 +28,11 @@ This is define on gulp.js.
 - clean : clean the /build/* directory
 - js-compile
 - compile-js
+  - List (will add individually in the future)
+    - bootstrap js 
+    - popper js
+    - tether js
+    - jquery
 - compile-bootstrap
 - compile-bulma
 - compile-scss
