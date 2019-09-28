@@ -126,7 +126,7 @@ Add the following to import individual component of each framework
 - https://github.com/necolas/idiomatic-css#general-principles
 
 ## Resources
-
+- [gulp] (https://riptutorial.com/gulp/topic/1341/getting-started-with-gulp)
 - [jQuery](https://jquery.com)
 - [Bootstrap](https://getbootstrap.com/)
 - [node](https://nodejs.org/en/)
