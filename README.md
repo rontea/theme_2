@@ -126,7 +126,7 @@ Add the following to import individual component of each framework
 - https://github.com/necolas/idiomatic-css#general-principles
 
 ## Resources
-- [gulp] (https://riptutorial.com/gulp/topic/1341/getting-started-with-gulp)
+- [gulp](https://riptutorial.com/gulp/topic/1341/getting-started-with-gulp)
 - [jQuery](https://jquery.com)
 - [Bootstrap](https://getbootstrap.com/)
 - [node](https://nodejs.org/en/)
@@ -134,7 +134,7 @@ Add the following to import individual component of each framework
 - [gulp](https://gulpjs.com/)
 - [panini](https://foundation.zurb.com/sites/docs/panini.html)
   - [Playlist](https://www.youtube.com/playlist?list=PLJVWPVPk_D_3A4OBvLtsrcjL7gs1QEWLW)
-
+- [Bulma](https://bulma.io/)
 ## Other
 
 - Readme.md Guide Template [Readme.md](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2)
