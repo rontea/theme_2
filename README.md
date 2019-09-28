@@ -21,18 +21,21 @@ This is define on gulp.js.
 ```
   $npm install --save-dev bulma
 ```
+##### Bulma task
+
+- watch-bulma-min (deploy all bulma css)
+- watch-bulma (to use bulma in includes under scss)
 
 ## Gulp Tasks
 
 - default
 - clean : clean the /build/* directory
-- js-compile
 - compile-js
-  - List (will add individually in the future)
-    - bootstrap js 
-    - popper js
-    - tether js
-    - jquery
+- compile-jquery
+- compile-popper
+- compile-tether
+- compile-bootstrapjs
+- bootstrap-optionaljs (run add jquery, popper, bootstrapjs)
 - compile-bootstrap
 - compile-bulma
 - compile-scss
@@ -40,6 +43,11 @@ This is define on gulp.js.
 - compile-img
 - compile-nobs
 - watch
+- watch-bulma-min
+- watch-bulma
+
+## Default task
+  compile bootstrap , optional js of bootstrap , watch , scss , js
 
 ## Using gulp-enviroments
 
@@ -78,6 +86,15 @@ Version 0.0.0
 Update 9.27 
 - Update src/style.scss to have an option to add bulma, bootstrap and google font
 - Added gulp task compile-bulma
+- seperate task for Jquery, popper , tether and bootstrap JS
+- Added gulp task bootstrap-optionaljs
+- Added gulp task compile-jquery
+- Added gulp task compile-popper
+- Added gulp task compile-tether
+- Added gulp task compile-bootstrapjs
+- Remove js-compile task
+- Added gulp task watch-bulma-min
+- Added gulp task watch-bulma
 
 Add the following to import individual component of each framework
 ```
@@ -98,7 +115,6 @@ Add the following to import individual component of each framework
 - Minify Image
 - Create Dist
 - Guide Templateting
-- Adding AngularJS
 - Adding Dist folder
 
 ## Link to Coding Standards

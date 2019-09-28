@@ -64,6 +64,7 @@ Setting enviroments (has an issue)
 gulp.task('set-dev', development.task);
 gulp.task('set-prod', production.task);
 
+
 /*
 JS compile user define
 */
@@ -74,6 +75,67 @@ gulp.task ( 'js-compile', function (){
     .pipe(gulp.dest(jspaths.mainDesc))
     .pipe(browserSync.stream());
 });
+
+/* 
+compile js jquery
+*/
+
+gulp.task ('compile-jquery', function () {
+  return gulp
+    // js paths source
+    .src(jspaths.jquery)
+    // write to destination
+    .pipe(gulp.dest(jsdes))
+    .pipe(browserSync.stream());
+});
+
+
+/* 
+compile js popper
+*/
+
+gulp.task ('compile-popper', function () {
+  return gulp
+    // js paths source
+    .src(jspaths.popper)
+    // write to destination
+    .pipe(gulp.dest(jsdes))
+    .pipe(browserSync.stream());
+});
+
+/* 
+compile js tether
+*/
+
+gulp.task ('compile-tether', function () {
+  return gulp
+    // js paths source
+    .src(jspaths.tether)
+    // write to destination
+    .pipe(gulp.dest(jsdes))
+    .pipe(browserSync.stream());
+});
+
+/* 
+compile js bootstrap
+*/
+
+gulp.task ('compile-bootstrapjs', function () {
+  return gulp
+    // js paths source
+    .src(jspaths.bootstrap)
+    // write to destination
+    .pipe(gulp.dest(jsdes))
+    .pipe(browserSync.stream());
+});
+
+/* Compile Bootstrap for Optinal Javascript 
+
+jQuery first, then Popper.js, then Bootstrap JS 
+
+*/
+
+gulp.task ('bootstrap-optionaljs', gulp.parallel('compile-jquery','compile-popper','compile-bootstrapjs'));
 
 /*
 JS to complile
@@ -86,6 +148,8 @@ gulp.task ('compile-js', function () {
     .pipe(gulp.dest(jsdes))
     .pipe(browserSync.stream());
 });
+
+
 
 /* bootstrap  and bulma path*/
 var paths = {
@@ -249,10 +313,20 @@ gulp.task('watch', function () {
     gulp.watch('src/images/**/*').on('change', gulp.series('compile-img'));
 });
 // start the process default
-gulp.task('default', gulp.parallel('hello','js-compile','compile-js','compile-bootstrap', 'compile-bulma','compile-scss','compile-html','compile-img','watch'));
+gulp.task('default', gulp.parallel('hello','js-compile','bootstrap-optionaljs','compile-bootstrap','compile-scss','compile-html','compile-img','watch'));
 
 /* Compile without the bootstrap, to use bootstrap in includes under scss */
-gulp.task('compile-nobs', gulp.parallel('hello','js-compile','compile-js','compile-scss','compile-html','compile-img','watch'));
+gulp.task('compile-nobs', gulp.parallel('hello','js-compile','bootstrap-optionaljs', 'compile-scss','compile-html','compile-img','watch'));
 
+/* using bulma on inc */
+gulp.task('watch-bulma-min', gulp.parallel('hello','js-compile','compile-bulma', 'compile-scss','compile-html','compile-img','watch'));
+
+/* bulma on style , to use bulma in includes under scss  */
+gulp.task('watch-bulma', gulp.parallel('hello','js-compile', 'compile-scss','compile-html','compile-img','watch'));
 
 /* Vue.js */
+
+
+
+
+/* Distribution Build */
