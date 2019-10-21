@@ -26,6 +26,15 @@ This is define on gulp.js.
 - watch-bulma-min (deploy all bulma css)
 - watch-bulma (to use bulma in includes under scss)
 
+##### Fontawesome additional installation
+```
+  $npm install --save-dev @fortawesome/fontawesome-free
+  
+  Task:
+  
+  $gulp addon-fontawesome
+```
+
 ## Gulp Tasks
 
 - default
