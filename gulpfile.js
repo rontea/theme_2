@@ -149,7 +149,18 @@ gulp.task ('compile-js', function () {
     .pipe(browserSync.stream());
 });
 
+/*
+  Font Awesome JS
+*/
 
+gulp.task ('addon-fontawesome', function () {
+  return gulp
+    // js paths source
+    .src(jspaths.fontawesome)
+    // write to destination
+    .pipe(gulp.dest(jsdes))
+    .pipe(browserSync.stream());
+});
 
 /* bootstrap  and bulma path*/
 var paths = {

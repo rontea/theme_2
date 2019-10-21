@@ -45,6 +45,7 @@ This is define on gulp.js.
 - watch
 - watch-bulma-min
 - watch-bulma
+- addon-fontawesome
 
 ## Default task
   compile bootstrap , optional js of bootstrap , watch , scss , js
@@ -82,6 +83,8 @@ $gulp clean
 Version 0.0.0
 
 ## Change log
+Update 10.22
+- Update added fontawesome URL and JS task 
 
 Update 9.27 
 - Update src/style.scss to have an option to add bulma, bootstrap and google font
@@ -101,6 +104,14 @@ Add the following to import individual component of each framework
 @import "google/google_font";
 @import "bootstrap/bootstrap";
 @import "bulma/bulma";
+@import "fontawesome/fontawesome";
+```
+
+Add the following link on default page or selected page
+
+Font Awesome 
+```
+<script src="js/inc/all.min.js"></script>
 ```
 
 ## Gulp Tasks Update
