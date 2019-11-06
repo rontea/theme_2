@@ -38,6 +38,7 @@ var jspaths = {
     popper : "node_modules/popper.js/dist/popper.min.js",
     tether: "node_modules/tether/dist/js/tether.min.js",
     jquery: "node_modules/jquery/dist/jquery.min.js",
+    fontawesome: "node_modules/@fortawesome/fontawesome-free/js/all.min.js",
     main: "src/js",
     mainDesc: "build/js"
 };
