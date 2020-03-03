@@ -33,6 +33,8 @@ This is define on gulp.js.
   Task:
   
   $gulp addon-fontawesome
+- Add the webfont to the build document so that font-awesome can be added on SCSS as class
+  $gulp addon-fontawesome-font
 ```
 
 ## Gulp Tasks
@@ -92,6 +94,8 @@ $gulp clean
 Version 0.0.0
 
 ## Change log
+Update 3.3.20
+- Update added fontawesome Copy font to include fontawesome on SCSS
 Update 10.22
 - Update added fontawesome URL and JS task 
 

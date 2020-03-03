@@ -35,7 +35,7 @@ var production = environments.production;
 /* JS paths*/
 var jspaths = {
     bootstrap: "node_modules/bootstrap/dist/js/bootstrap.min.js",
-    popper : "node_modules/popper.js/dist/popper.min.js",
+    popper : "node_modules/popper.js/dist/umd/popper.js",
     tether: "node_modules/tether/dist/js/tether.min.js",
     jquery: "node_modules/jquery/dist/jquery.min.js",
     fontawesome: "node_modules/@fortawesome/fontawesome-free/js/all.min.js",
@@ -161,6 +161,18 @@ gulp.task ('addon-fontawesome', function () {
     // write to destination
     .pipe(gulp.dest(jsdes))
     .pipe(browserSync.stream());
+});
+
+/* 
+ Webfont for Fontawesome
+*/
+gulp.task ('addon-fontawesome-font', function () {
+  return gulp
+    // 
+    .src(["node_modules/@fortawesome/fontawesome-free/webfonts/**/*"])
+    // 
+    .pipe(gulp.dest("build/webfonts"));
+    
 });
 
 /* bootstrap  and bulma path*/
