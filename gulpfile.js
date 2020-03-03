@@ -163,17 +163,25 @@ gulp.task ('addon-fontawesome', function () {
     .pipe(browserSync.stream());
 });
 
+// webfont URL 
+var webfont = "node_modules/@fortawesome/fontawesome-free/webfonts/**/*";
+
 /* 
  Webfont for Fontawesome
 */
 gulp.task ('addon-fontawesome-font', function () {
   return gulp
     // 
-    .src(["node_modules/@fortawesome/fontawesome-free/webfonts/**/*"])
+    .src([webfont])
     // 
     .pipe(gulp.dest("build/webfonts"));
     
 });
+
+// add both css, js and webfont
+
+gulp.task('addon-fontawesome-all', gulp.parallel('addon-fontawesome-font','addon-fontawesome'));
+
 
 /* bootstrap  and bulma path*/
 var paths = {

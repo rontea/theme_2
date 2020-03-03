@@ -27,14 +27,22 @@ This is define on gulp.js.
 - watch-bulma (to use bulma in includes under scss)
 
 ##### Fontawesome additional installation
+- install fontawesome on npm
 ```
   $npm install --save-dev @fortawesome/fontawesome-free
-  
-  Task:
-  
+```
+##### Task:
+- Add the JS of fontawesome
+```
   $gulp addon-fontawesome
+```
 - Add the webfont to the build document so that font-awesome can be added on SCSS as class
+```
   $gulp addon-fontawesome-font
+```
+- Add both JS and webfont
+```
+$gulp addon-fontawesome-all
 ```
 
 ## Gulp Tasks
