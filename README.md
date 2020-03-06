@@ -44,6 +44,17 @@ This is define on gulp.js.
 ```
 $gulp addon-fontawesome-all
 ```
+##### Add Prism 
+Prism is a lightweight, extensible syntax highlighter, built with modern web standards in mind. It’s used in thousands of websites, including some of those you visit daily. 
+- Download CSS and JS ["Prism"](https://prismjs.com/index.html)
+- JS Add to folder src/js
+- CSS Add to folder src/css
+- Add Reference JS and CSS to HTML code
+- Run gulp task 
+
+```
+  $gulp addon-prism
+```
 
 ## Gulp Tasks
 
@@ -65,6 +76,8 @@ $gulp addon-fontawesome-all
 - watch-bulma-min
 - watch-bulma
 - addon-fontawesome
+- addon-fontawesome-font
+- addon-fontawesome-all
 
 ## Default task
   compile bootstrap , optional js of bootstrap , watch , scss , js
@@ -102,7 +115,8 @@ $gulp clean
 Version 0.0.0
 
 ## Change log
-Update 3.3.20
+- Update 3.6.20
+- Update 3.3.20
 - Update added fontawesome Copy font to include fontawesome on SCSS
 Update 10.22
 - Update added fontawesome URL and JS task 
@@ -167,6 +181,7 @@ Font Awesome
 - [panini](https://foundation.zurb.com/sites/docs/panini.html)
   - [Playlist](https://www.youtube.com/playlist?list=PLJVWPVPk_D_3A4OBvLtsrcjL7gs1QEWLW)
 - [Bulma](https://bulma.io/)
+- [Prism](https://prismjs.com/index.html)
 ## Other
 
 - Readme.md Guide Template [Readme.md](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2)
