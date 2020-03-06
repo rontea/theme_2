@@ -39,8 +39,10 @@ var jspaths = {
     tether: "node_modules/tether/dist/js/tether.min.js",
     jquery: "node_modules/jquery/dist/jquery.min.js",
     fontawesome: "node_modules/@fortawesome/fontawesome-free/js/all.min.js",
+    prism: "src/js/prism.js",
     main: "src/js",
     mainDesc: "build/js"
+   
 };
 
 /* JS Destination */
@@ -130,6 +132,19 @@ gulp.task ('compile-bootstrapjs', function () {
     .pipe(browserSync.stream());
 });
 
+/* 
+compile js prism
+*/
+
+gulp.task ('compile-prismjs', function () {
+  return gulp
+    // js paths source
+    .src(jspaths.prism)
+    // write to destination
+    .pipe(gulp.dest(jsdes))
+    .pipe(browserSync.stream());
+});
+
 /* Compile Bootstrap for Optinal Javascript 
 
 jQuery first, then Popper.js, then Bootstrap JS 
@@ -197,6 +212,10 @@ var paths = {
       src: "node_modules/bulma/bulma.sass",
       dest: "build/css/inc"
     },
+    prism: {
+      src: "src/css/prism.css",
+      dest: "build/css/inc",
+    }
 };
 /* Bootstrap */
 
@@ -211,6 +230,21 @@ gulp.task('compile-bootstrap', function (){
     .pipe(gulp.dest(paths.bootstrap.dest))
     .pipe(browserSync.stream());
 });
+
+/*
+Prism to complie
+*/
+gulp.task('compile-prismcss', function (){
+  return gulp
+    .src(paths.prism.src)
+    .pipe(sass().on('error', sass.logError))
+    .pipe(production(postcss([autoprefixer(), cssnano()])))
+    .pipe(gulp.dest(paths.prism.dest))
+    .pipe(browserSync.stream());
+});
+
+// Compile prism 
+gulp.task('addon-prism', gulp.parallel('compile-prismcss','compile-prismjs'));
 
 /* Bulma */
 
