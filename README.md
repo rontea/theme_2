@@ -56,6 +56,8 @@ Prism is a lightweight, extensible syntax highlighter, built with modern web sta
   $gulp addon-prism
 ```
 
+- update prism by overriding the code on src/js and src/css
+
 ## Gulp Tasks
 
 - default
@@ -78,6 +80,7 @@ Prism is a lightweight, extensible syntax highlighter, built with modern web sta
 - addon-fontawesome
 - addon-fontawesome-font
 - addon-fontawesome-all
+- addon-prism
 
 ## Default task
   compile bootstrap , optional js of bootstrap , watch , scss , js
@@ -115,7 +118,7 @@ $gulp clean
 Version 0.0.0
 
 ## Change log
-- Update 3.6.20
+- Update 3.6.20 Added Prism
 - Update 3.3.20
 - Update added fontawesome Copy font to include fontawesome on SCSS
 Update 10.22
