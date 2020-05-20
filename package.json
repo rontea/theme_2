@@ -29,7 +29,11 @@
     "gulp-sass": "^4.0.2",
     "gulp-sourcemaps": "^2.6.5",
     "gulp-uglify": "^3.0.2",
+<<<<<<< HEAD
     "jquery": "^3.5.1",
+=======
+    "jquery": "^3.5.0",
+>>>>>>> d7f4ac939e0d2faa5e190aa2a331c821aa70994e
     "panini": "^1.6.3",
     "popper": "^1.0.1",
     "popper.js": "^1.15.0",
