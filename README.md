@@ -146,7 +146,7 @@ $gulp clean
 
 ## Version
 
-Version 1.0.2
+Version 1.0.2a
 
 ## Change log
 Update 5.20.20
@@ -154,6 +154,7 @@ Update 5.20.20
 - Added to NPM [Link](https://www.npmjs.com/package/theme_2_v1)
 - Update new task in Theming folder of Drupal
 
+Update Older
 - Update 3.6.20 Added Prism
 - Update 3.3.20
 - Update added fontawesome Copy font to include fontawesome on SCSS
