@@ -13,7 +13,7 @@ var gulp = require("gulp"),
     browserSync = require("browser-sync").create(),
     // gulp-enviroments
     environments = require('gulp-environments'),
-    // gulp-uglify
+    // gulp-uglify use in js
     uglify = require('gulp-uglify'),
     // panini
     panini = require('panini'),
@@ -42,7 +42,6 @@ var jspaths = {
     prism: "src/js/prism.js",
     main: "src/js",
     mainDesc: "build/js"
-   
 };
 
 /* JS Destination */
@@ -87,6 +86,8 @@ gulp.task ('compile-jquery', function () {
   return gulp
     // js paths source
     .src(jspaths.jquery)
+    //uglify
+    .pipe(production(uglify()))
     // write to destination
     .pipe(gulp.dest(jsdes))
     .pipe(browserSync.stream());
@@ -101,6 +102,8 @@ gulp.task ('compile-popper', function () {
   return gulp
     // js paths source
     .src(jspaths.popper)
+    //uglify
+    .pipe(production(uglify()))
     // write to destination
     .pipe(gulp.dest(jsdes))
     .pipe(browserSync.stream());
@@ -114,6 +117,8 @@ gulp.task ('compile-tether', function () {
   return gulp
     // js paths source
     .src(jspaths.tether)
+    //uglify
+    .pipe(production(uglify()))
     // write to destination
     .pipe(gulp.dest(jsdes))
     .pipe(browserSync.stream());
@@ -127,6 +132,8 @@ gulp.task ('compile-bootstrapjs', function () {
   return gulp
     // js paths source
     .src(jspaths.bootstrap)
+    //uglify
+    .pipe(production(uglify()))
     // write to destination
     .pipe(gulp.dest(jsdes))
     .pipe(browserSync.stream());
@@ -141,6 +148,8 @@ gulp.task ('compile-prismjs', function () {
     // js paths source
     .src(jspaths.prism)
     // write to destination
+    //uglify
+    .pipe(production(uglify()))
     .pipe(gulp.dest(jsdes))
     .pipe(browserSync.stream());
 });
@@ -160,6 +169,8 @@ gulp.task ('compile-js', function () {
   return gulp
     // js paths source
     .src([jspaths.bootstrap, jspaths.popper, jspaths.tether, jspaths.jquery])
+    //uglify
+    .pipe(production(uglify()))
     // write to destination
     .pipe(gulp.dest(jsdes))
     .pipe(browserSync.stream());
@@ -173,6 +184,8 @@ gulp.task ('addon-fontawesome', function () {
   return gulp
     // js paths source
     .src(jspaths.fontawesome)
+    //uglify
+    .pipe(production(uglify()))
     // write to destination
     .pipe(gulp.dest(jsdes))
     .pipe(browserSync.stream());
@@ -196,7 +209,6 @@ gulp.task ('addon-fontawesome-font', function () {
 // add both css, js and webfont
 
 gulp.task('addon-fontawesome-all', gulp.parallel('addon-fontawesome-font','addon-fontawesome'));
-
 
 /* bootstrap  and bulma path*/
 var paths = {
@@ -249,7 +261,7 @@ gulp.task('addon-prism', gulp.parallel('compile-prismcss','compile-prismjs'));
 /* Bulma */
 
 /*
-Bulma to complie
+Bulma to compile
 */
 
 gulp.task('compile-bulma', function (){
@@ -392,8 +404,172 @@ gulp.task('watch-bulma', gulp.parallel('hello','js-compile', 'compile-scss','com
 
 /* Vue.js */
 
-
-
-
 /* Distribution Build ** update 3.6.20 */
 
+
+/* Gulp Task build SCSS to Drupal Theme page */
+
+/*
+  Document Paths
+*/
+
+/* bootstrap  and bulma path*/
+var path_drupal = {
+  // main folder
+  main: {
+    dest: "../" 
+  },
+
+  css: {
+    dest: "../css"
+  },
+
+  js: {
+    dest: "../js"
+  },
+
+  images: {
+    dest: "../images"
+  },
+
+};
+
+/*
+Drupal Sass to compile
+*/
+
+gulp.task('drupal-compile-scss', function () {
+  return gulp
+    // sass location
+    .src(paths.styles.src)
+    //sourcemaps
+    .pipe(development(sourcemaps.init()))
+    //sass error log
+    .pipe(sass().on('error', sass.logError))
+    // Use postcss with autoprefixer and compress the compiled file using cssnano
+    .pipe(production(postcss([autoprefixer(), cssnano()])))
+    // Now add/write the sourcemaps
+    .pipe(development(sourcemaps.write()))
+    // sass destination
+    .pipe(gulp.dest(path_drupal.css.dest))
+    // Add browsersync stream pipe after compilation
+    .pipe(browserSync.stream());
+});
+
+/* CSS */
+
+/*
+Bootstrap to compile
+*/
+gulp.task('drupal-compile-bootstrap', function (){
+  return gulp
+    .src(paths.bootstrap.src)
+    .pipe(sass().on('error', sass.logError))
+    .pipe(production(postcss([autoprefixer(), cssnano()])))
+    .pipe(gulp.dest(path_drupal.css.dest));
+    
+});
+
+/*
+Prism to compile
+*/
+gulp.task('drupal-compile-prismcss', function (){
+  return gulp
+    .src(paths.prism.src)
+    .pipe(sass().on('error', sass.logError))
+    .pipe(production(postcss([autoprefixer(), cssnano()])))
+    .pipe(gulp.dest(path_drupal.css.dest));
+    
+});
+
+/*
+Bulma to compile
+*/
+
+gulp.task('drupal-compile-bulma', function (){
+  return gulp
+    .src(paths.bulma.src)
+    .pipe(sass().on('error', sass.logError))
+    .pipe(production(postcss([autoprefixer(), cssnano()])))
+    .pipe(gulp.dest(path_drupal.css.dest));
+});
+
+
+/* JS */
+
+/*
+JS compile user define
+*/
+gulp.task ('drupal-js-compile', function (){
+  return gulp
+    .src(jspaths.main + '/**/*.js')
+    .pipe(production(uglify()))
+    .pipe(gulp.dest(path_drupal.js.dest))
+});
+
+
+gulp.task ('drupal-compile-js', function () {
+  return gulp
+    // js paths source
+    .src([jspaths.bootstrap, jspaths.popper, jspaths.tether, jspaths.jquery])
+    //uglify
+    .pipe(production(uglify()))
+    // write to destination
+    .pipe(gulp.dest(path_drupal.js.dest));
+});
+
+
+// prism
+gulp.task ('drupal-compile-prismjs', function () {
+  return gulp
+    // js paths source
+    .src(jspaths.prism)
+    //uglify
+    .pipe(production(uglify()))
+    // write to destination
+    .pipe(gulp.dest(path_drupal.js.dest));
+    
+});
+
+gulp.task ('drupal-compile-fontawesomejs', function () {
+  return gulp
+    // js paths source
+    .src(jspaths.fontawesome)
+    //uglify
+    .pipe(production(uglify()))
+    // write to destination
+    .pipe(gulp.dest(path_drupal.js.dest));
+    
+});
+
+
+/* Web Font */
+
+/* 
+ Webfont for Fontawesome
+*/
+
+gulp.task ('drupal-fontawesome-webfont', function () {
+  return gulp
+    // webfont source   
+    .src([webfont])
+    // webfont dis
+    .pipe(gulp.dest(path_drupal.main.dest));
+    
+});
+// combine prism 
+gulp.task('drupal-prism-compile', gulp.parallel('drupal-compile-prismcss','drupal-compile-prismjs'));
+
+// combine fontawesome
+gulp.task('drupal-fontawesome-compile', gulp.parallel('drupal-fontawesome-webfont','drupal-compile-fontawesomejs'));
+
+/* Images */
+
+// tranfer images
+gulp.task('drupal-compile-img', function(){
+  return gulp.src(img.src)
+  .pipe(gulp.dest(path_drupal.images.dest));
+});
+
+// build to drupal
+gulp.task('drupal-build', gulp.parallel('drupal-js-compile','drupal-compile-scss','drupal-compile-js','drupal-compile-img'));

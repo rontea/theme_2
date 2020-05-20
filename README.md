@@ -3,11 +3,23 @@
 Theme template using panini to divide and sub-divide each html document to a more clean coding.
 This is define on gulp.js.
 
+Theme template is use in Drupal project theming folder.
+
 ## Requirements:
 
 - node
 - npm install gulp-cli -g
 - npm init
+### Task to copy on folder (Until Better Solution)
+  - npm install --save-dev fs-extra
+  - npm install --save-dev theme_2_v1
+  - node node_modules/theme_2_v1/init-package.js
+  - npm init
+  - npm audit 
+  - npm audit fix
+  - use the gulp item
+
+### Cont >
   - npm install --save-dev gulp gulp-postcss gulp-sass gulp-sourcemaps gulp-uglify gulp-environments autoprefixer cssnano browser-sync jquery popper bootstrap tether panini rimraf gulp-html
 
   ```
@@ -81,6 +93,23 @@ Prism is a lightweight, extensible syntax highlighter, built with modern web sta
 - addon-fontawesome-font
 - addon-fontawesome-all
 - addon-prism
+
+# Task on Drupal Theme 
+- drupal-compile-scss
+- drupal-compile-bootstrap
+- drupal-compile-prismcss
+- drupal-compile-bulma
+- drupal-js-compile
+- drupal-compile-js
+- drupal-compile-prismjs
+- drupal-compile-fontawesomejs
+- drupal-fontawesome-webfont
+- drupal-compile-img
+
+### Combination Task
+- drupal-prism-compile
+- drupal-fontawesome-compile
+- drupal-build
 
 ## Default task
   compile bootstrap , optional js of bootstrap , watch , scss , js
