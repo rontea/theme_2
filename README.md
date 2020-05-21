@@ -13,15 +13,35 @@ Added to NPM [npm](https://www.npmjs.com/package/theme_2_v1)
 - npm install gulp-cli -g
 - npm init
 ### Task to copy on folder (Until Better Solution)
+  - npm init
+  - npm install gulp-cli -g
   - npm install --save-dev fs-extra
   - npm install --save-dev theme_2_v1
   - node node_modules/theme_2_v1/init-package.js
-  - npm init
-  - npm audit 
-  - npm audit fix
-  - use the gulp item
+  - Design Folder execute:
+      content for the work enviroment will be copied
+  ```
+  $ node node_modules/theme_2_v1/init-package.js
+  ```
+  - Test by Runnig gulp to activate browsersync on http://localhost:3000/
+  - Build Asset Using drupal command to publish on theme folder 
 
-### Cont >
+    ## theme folder
+    . drupal main folder /themes
+    ├── contrib
+    ├── custom                  # custom folder
+    │   ├── xxx                 # Project folder
+    │       ├── css             # Project folder
+    │       ├── js              # Project folder
+    │       ├── images          # Project folder
+    │       └── design          # Design folder of this project
+    |       └── templates       # Project folder
+    |       └── config          # Project folder 
+    └──
+    
+    ***Design folder will host all the document
+
+### Cont :
   - npm install --save-dev gulp gulp-postcss gulp-sass gulp-sourcemaps gulp-uglify gulp-environments autoprefixer cssnano browser-sync jquery popper bootstrap tether panini rimraf gulp-html
 
   ```
@@ -29,6 +49,12 @@ Added to NPM [npm](https://www.npmjs.com/package/theme_2_v1)
   $npm init
   $npm install --save-dev gulp gulp-postcss gulp-sass gulp-sourcemaps gulp-uglify gulp-environments autoprefixer cssnano browser-sync jquery popper bootstrap tether panini rimraf gulp-html
   ```
+### Install all Dependencies with Fontawesome
+  ```
+  $npm install --save-dev gulp gulp-postcss gulp-sass gulp-sourcemaps gulp-uglify gulp-environments autoprefixer cssnano browser-sync jquery popper bootstrap tether panini rimraf gulp-html @fortawesome/fontawesome-free 
+
+  ```
+
 ## Adding Vue.js and Bulma CSS
 
 ##### bulma additional installation
@@ -146,9 +172,14 @@ $gulp clean
 
 ## Version
 
-Version 1.0.2b
+Version 1.0.3a
 
 ## Change log
+
+Update 5.21.20
+- documentation update
+- Re-arrange document folder to project_src **fix issue
+
 Update 5.20.20
 - Added init-package.js to copy from node_modules  > theme_2_V1 to Main Directory
 - Added to NPM [Link](https://www.npmjs.com/package/theme_2_v1)
