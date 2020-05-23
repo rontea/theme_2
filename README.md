@@ -174,7 +174,7 @@ $gulp clean
 
 ## Version
 
-Version 1.0.3a
+Version 1.0.3b
 
 ## Change log
 
