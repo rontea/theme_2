@@ -38,20 +38,32 @@ Added to NPM [npm](https://www.npmjs.com/package/theme_2_v1)
     |       └── templates       # Project folder
     |       └── config          # Project folder 
     └──
+
+    . drupal main folder /themes
+    &#x251C;&#x2500;&#x2500; contrib
+    &#x251C;&#x2500;&#x2500; custom                  # custom folder
+    &#x2502;   &#x251C;&#x2500;&#x2500; xxx                 # Project folder
+    &#x2502;       &#x251C;&#x2500;&#x2500; css             # Project folder
+    &#x2502;       &#x251C;&#x2500;&#x2500; js              # Project folder
+    &#x2502;       &#x251C;&#x2500;&#x2500; images          # Project folder
+    &#x2502;       &#x2514;&#x2500;&#x2500; design          # Design folder of this project
+    |       &#x2514;&#x2500;&#x2500; templates       # Project folder
+    |       &#x2514;&#x2500;&#x2500; config          # Project folder 
+    &#x2514;&#x2500;&#x2500;
     
     ***Design folder will host all the document
 
 ### Cont :
-  - npm install --save-dev gulp gulp-postcss gulp-sass gulp-sourcemaps gulp-uglify gulp-environments autoprefixer cssnano browser-sync jquery popper bootstrap tether panini rimraf gulp-html
+  - npm install --save-dev gulp gulp-postcss gulp-sass gulp-sourcemaps gulp-uglify gulp-environments autoprefixer cssnano browser-sync jquery popper.js bootstrap tether panini rimraf gulp-html
 
   ```
   $npm install gulp-cli -g
   $npm init
-  $npm install --save-dev gulp gulp-postcss gulp-sass gulp-sourcemaps gulp-uglify gulp-environments autoprefixer cssnano browser-sync jquery popper bootstrap tether panini rimraf gulp-html
+  $npm install --save-dev gulp gulp-postcss gulp-sass gulp-sourcemaps gulp-uglify gulp-environments autoprefixer cssnano browser-sync jquery popper.js bootstrap tether panini rimraf gulp-html
   ```
 ### Install all Dependencies with Fontawesome
   ```
-  $npm install --save-dev gulp gulp-postcss gulp-sass gulp-sourcemaps gulp-uglify gulp-environments autoprefixer cssnano browser-sync jquery popper bootstrap tether panini rimraf gulp-html @fortawesome/fontawesome-free 
+  $npm install --save-dev gulp gulp-postcss gulp-sass gulp-sourcemaps gulp-uglify gulp-environments autoprefixer cssnano browser-sync jquery popper.js bootstrap tether panini rimraf gulp-html @fortawesome/fontawesome-free 
 
   ```
 
