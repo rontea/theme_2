@@ -27,6 +27,7 @@ Added to NPM [npm](https://www.npmjs.com/package/theme_2_v1)
   - Build Asset Using drupal command to publish on theme folder 
 
     ## theme folder
+    ```
     . drupal main folder /themes
     ├── contrib
     ├── custom                  # custom folder
@@ -38,18 +39,7 @@ Added to NPM [npm](https://www.npmjs.com/package/theme_2_v1)
     |       └── templates       # Project folder
     |       └── config          # Project folder 
     └──
-
-    . drupal main folder /themes
-    &#x251C;&#x2500;&#x2500; contrib
-    &#x251C;&#x2500;&#x2500; custom                  # custom folder
-    &#x2502;   &#x251C;&#x2500;&#x2500; xxx                 # Project folder
-    &#x2502;       &#x251C;&#x2500;&#x2500; css             # Project folder
-    &#x2502;       &#x251C;&#x2500;&#x2500; js              # Project folder
-    &#x2502;       &#x251C;&#x2500;&#x2500; images          # Project folder
-    &#x2502;       &#x2514;&#x2500;&#x2500; design          # Design folder of this project
-    |       &#x2514;&#x2500;&#x2500; templates       # Project folder
-    |       &#x2514;&#x2500;&#x2500; config          # Project folder 
-    &#x2514;&#x2500;&#x2500;
+   ```
     
     ***Design folder will host all the document
 
